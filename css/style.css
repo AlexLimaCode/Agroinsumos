@@ -72,7 +72,9 @@ li {
 	height: 110vh;
 	position: relative;
 }
-
+section{
+	ackground-color: var(--primary);
+}
 .services,
 .work,
 .contact,
