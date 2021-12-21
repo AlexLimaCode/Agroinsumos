@@ -21,8 +21,8 @@ Table Of Contents:
 /*     General Styles     */
 /**************************/
 :root {
-	--primary: #1c262f;
-	--primary-light: #212d37;
+	--primary: #D9DFC2;
+	--primary-light: #D9DFC2;
 	--secondary: #0ee951;
 	--tertiary: #00dabf;
 	--gradient: linear-gradient(to right, #0ee951, #00dabf);
@@ -34,6 +34,7 @@ h3,
 h4,
 h5,
 h6 {
+	color: #6D4D31;
 	font-family: "Poppins", sans-serif;
 }
 
@@ -49,12 +50,13 @@ button {
 p,
 ul,
 h4 {
+	color: #6D4D31;
 	margin: 0;
 	padding: 0;
 }
 
 a {
-	color: white;
+	color: #6D4D31;
 	text-decoration: none;
 }
 
@@ -150,7 +152,7 @@ section{
 }
 
 .navbar .logo-text {
-	color: #fff;
+	color: #5E7F38;
 	font-weight: 500;
 	line-height: 1rem;
 	font-size: 1.575rem;
@@ -167,7 +169,7 @@ section{
 	visibility: hidden;
 	padding-right: 1rem;
 	padding-left: 1rem;
-	background-color: var(--primary);
+	background-color: #D9DFC2;
 	transition: transform 0.2s ease-in-out, visibility 0.2s ease-in-out;
 }
 
@@ -185,11 +187,11 @@ section{
 	border: none;
 	margin-top: 0.25rem;
 	margin-bottom: 0.25rem;
-	background-color: var(--primary);
+	background-color: #D9DFC2;
 }
 
 .navbar .dropdown-item {
-	color: #eee;
+	color: #5E7F38;
 	font-weight: 500;
 	font-size: 0.875rem;
 	line-height: 0.875rem;
@@ -211,7 +213,7 @@ section{
 }
 
 .navbar .nav-item .nav-link {
-	color: #eee;
+	color: #5E7F38;
 	text-decoration: none;
 	padding-top: 0.625rem;
 	padding-bottom: 0.625rem;
@@ -224,6 +226,7 @@ section{
 	margin-right: 0.25rem;
 }
 
+/*IMPORTANTE PARA EL COLOR DE LOS LINKS DE SOCIAL MEDIA*/
 .navbar .fa-stack-2x {
 	background: -webkit-gradient(
 		linear,
@@ -239,12 +242,12 @@ section{
 }
 
 .navbar .fa-stack-1x {
-	color: #ffffff;
+	color: #5E7F38;
 	transition: all 0.2s ease;
 }
 
 .navbar .fa-stack:hover .fa-stack-2x {
-  	color: var(--primary);
+  	color: #5E7F38;
 }
 
 .navbar .fa-stack:hover .fa-stack-1x {
@@ -292,7 +295,7 @@ section{
 }
 
 .information .container-fluid .row div:last-child {
-  	background-color: white;
+  	background-color: #5E7F38;
 }
 
 .information .container-fluid .row div:nth-child(2) {
@@ -304,7 +307,7 @@ section{
 /*     Button     */
 /******************/
 .btn {
-	color: white;
+	color: #6D4D31;
 	border-radius: 0;
 	border-width: 2px;
 	padding: 10px 30px;
@@ -316,7 +319,7 @@ section{
 }
 
 .btn:hover {
-	color: white;
+	color: #5E7F38;
 	box-shadow: none;
 	border-radius: 0;
 	padding: 10px 30px;
@@ -368,7 +371,7 @@ section{
 .services .card {
 	padding: 20px;
 	border-radius: 0;
-	border: 2px solid white;
+	border: 2px solid #6D4D31;
 }
 
 .services .card:hover {
@@ -386,7 +389,7 @@ section{
 /*****************/
 .plans .card {
 	padding: 20px;
-	border: 2px solid white;
+	border: 2px solid #5E7F38;
 }
 
 
