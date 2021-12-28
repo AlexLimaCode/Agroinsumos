@@ -265,7 +265,7 @@ section{
 /*     Home     */
 /****************/
 .home {
-	background-image: url(../assets/images/home.jpg);
+	background-image: url(../assets/images/home/1.png);
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -374,14 +374,14 @@ section{
 	border: 2px solid #6D4D31;
 }
 
-.services .card:hover {
+/* .services .card:hover {
 	border: 10px solid;
 	transform: scale(1.01);
 	border-image-slice: 1;
 	border-width: 2px;
 	border-image-source: var(--gradient);
 	box-shadow: 5px 5px 0px 0px #0ee951;
-}
+} */
 
 
 /*****************/
@@ -729,4 +729,29 @@ section{
 		width: 22px;
 		background-size: 22px 34px;
 	}
+}
+
+
+/* New classes */
+.image {
+	border: 2px solid #fff;
+	width: 100%;
+	overflow: hidden
+}
+
+.image img {
+	width: 100%;
+	height: 300;
+	transition: all 2s ease-in-out
+}
+
+.image:hover img {
+	transform: scale(1.3, 1.3);
+	cursor: pointer
+}
+
+.productsCard {
+	padding: 20px;
+	border-radius: 0;
+	border: 2px solid #D9DFC2;
 }
