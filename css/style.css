@@ -271,6 +271,13 @@ section{
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
+.about{
+	background-image: url(../assets/images/home/1.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
 .aboutPage{
 	background-image: url(../assets/images/1.jpg);
 	background-size: cover;
@@ -306,7 +313,7 @@ section{
 /******************/
 /*     Button     */
 /******************/
-.btn {
+/* .btn {
 	color: #6D4D31;
 	border-radius: 0;
 	border-width: 2px;
@@ -324,10 +331,10 @@ section{
 	border-radius: 0;
 	padding: 10px 30px;
 	transform: translate(5px, 5px);
-}
+} */
 
 /* Email - Newsletter Button */
-.btn-secondary {
+/* .btn-secondary {
 	color: black;
 	border-width: 2px;
 	padding: 10px 30px;
@@ -341,7 +348,7 @@ section{
 	color: black;
 	padding: 10px 30px;
 	background-image: var(--gradient);
-}
+} */
 
 /* Other Pages Button */
 .btn-tertiary {

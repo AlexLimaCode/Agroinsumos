@@ -30,6 +30,34 @@
     <script type="text/javascript" src="../js/main.js"></script>
     <!-- Favicon -->
     <link rel="icon" href="../assets/images/favicon.png">
+    <style>
+        body{
+            background-color: #D9DFC2;
+        }
+        .modal-content{ 
+            background-color: #A6CE39;
+        }
+        .modal-header{
+            border-bottom: transparent !important;
+        }
+        .modal-footer{ 
+            border-top: transparent !important;
+        }
+        .btn-primary{
+            background-color: transparent !important;
+            border-color: transparent !important;
+        }
+        .btn-primary:hover{color:#fff;background-color:transparent;border-color:transparent}
+        .btn-check:focus+.btn-primary,.btn-primary:focus{color:#fff;background-color:transparent;border-color:transparent;box-shadow:0 0 0 .25rem transparent}
+        .btn-check:active+.btn-primary,.btn-check:checked+.btn-primary,.btn-primary.active,.btn-primary:active,.show>.btn-primary.dropdown-toggle{color:#fff;background-color:transparent;border-color:transparent}
+        .btn-check:active+.btn-primary:focus,.btn-check:checked+.btn-primary:focus,.btn-primary.active:focus,.btn-primary:active:focus,.show>.btn-primary.dropdown-toggle:focus{box-shadow:0 0 0 .25rem transparent}
+        .btn-primary.disabled,.btn-primary:disabled{color:#fff;background-color:transparent;border-color:transparent}
+        @media only screen and (max-width: 1024px) {
+            .about{
+                margin-top: 100px;
+            }
+        }
+    </style>
 </head>
 <body>
     
@@ -103,102 +131,184 @@
             <div class="row">
                 <div class="col-md">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Launch demo modal
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#quienes1">
+                        <img src="../assets/images/About/1.svg" alt="" class="img-fluid">
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal fade" id="quienes1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen-sm-down">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">¿Quiénes somos?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="carouselExampleFade" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                          <div class="carousel-item active">
+                                            <p>Nuestro equipo de trabajo es cuidadosamente seleccionado asegurándonos que todas las personas que conforman EM Agroinsumos cumplan los requerimientos técnicos competentes, estén comprometidos con el mejoramiento continuo, compartan nuestra visualización del futuro y que además prioricen los cultivos de nuestros clientes como si fueran los suyos.</p>
+                                          </div>
+                                          <div class="carousel-item">
+                                            <p>Tanto el equipo técnico como el equipo de venta y nuestros administrativos comparten valores indispensables que en conjunto integran todo lo que ya te hemos contado, un equipo que busca cambiar la industria agrícola.</p>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <!-- <button class="btn btn-primary" data-bs-target="#quienes2"  data-bs-toggle="modal">
+                                        <img src="../assets/images/About/6.svg" alt="" class="img-fluid" style="width:20px; height: 20px;">
+                                    </button> -->
+                                    <button class="btn btn-primary" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                                        <!-- <span  ></span> -->
+                                        <img aria-hidden="true" src="../assets/images/About/5.svg" alt="" class="img-fluid" style="width:20px; height: 20px;">
+                                    </button>
+                                    <button class="btn btn-primary" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                                        <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span> -->
+                                        <img aria-hidden="true" src="../assets/images/About/6.svg" alt="" class="img-fluid" style="width:20px; height: 20px;">
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
                 <div class="col-md">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Launch demo modal
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#que">
+                        <img src="../assets/images/About/2.svg" alt="" class="img-fluid">
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal fade" id="que" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen-sm-down">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">¿Qué hacemos?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="queHacemos" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                          <div class="carousel-item active">
+                                            <p>Llevamos tiempo haciendo lo que hacemos y gracias a la experiencia que hemos adquirido entendemos la evolución de la industria agrícola, por ello, ofrecemos productos de vanguardia con soluciones reales que respondan a las necesidades de nuestros clientes.</p>
+                                          </div>
+                                          <div class="carousel-item">
+                                            <p>Pero eso no es suficiente, para nosotros la industria agrícola es una actividad prioritaria y esencial en la alimentación humana, por eso, buscamos transmitir y contagiar nuestra manera de pensar “La nueva forma de ver la agricultura” a todos nuestros clientes, con tecnologías amigables con el suelo y el medio ambiente sin perder de vista el crecimiento y la rentabilidad de las unidades de producción.</p>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <!-- <button class="btn btn-primary" data-bs-target="#quienes2"  data-bs-toggle="modal">
+                                        <img src="../assets/images/About/6.svg" alt="" class="img-fluid" style="width:20px; height: 20px;">
+                                    </button> -->
+                                    <button class="btn btn-primary" type="button" data-bs-target="#queHacemos" data-bs-slide="prev">
+                                        <!-- <span  ></span> -->
+                                        <img aria-hidden="true" src="../assets/images/About/5.svg" alt="" class="img-fluid" style="width:20px; height: 20px;">
+                                    </button>
+                                    <button class="btn btn-primary" type="button" data-bs-target="#queHacemos" data-bs-slide="next">
+                                        <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span> -->
+                                        <img aria-hidden="true" src="../assets/images/About/6.svg" alt="" class="img-fluid" style="width:20px; height: 20px;">
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
                 <div class="col-md">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Launch demo modal
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#como">
+                        <img src="../assets/images/About/3.svg" alt="" class="img-fluid">
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal fade" id="como" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen-sm-down">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">¿Cómo lo hacemos?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="comoHacemos" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                          <div class="carousel-item active">
+                                            <p>Existe un producto para cada necesidad y nosotros nos encargamos de que obtengas la solución que tu cultivo necesita. El espíritu de nuestro negocio no solo busca vender productos de alta calidad, si no también, buscamos llevar de la mano a todos nuestros clientes a través de un servicio postventa que permite dar seguimiento al uso de las tecnologías y aplicación de los productos que forman parte de nuestro portafolio de soluciones, contribuyendo a tus planes de crecimiento y rentabilidad de tu negocio.</p>
+                                          </div>
+                                          <div class="carousel-item">
+                                            <p>Además de fortalecer la relación que tenemos con cada uno de nuestros clientes. Por otra parte, realizamos un acompañamiento puntual que te permite medir en tiempo real de la forma más rápida y confiable la calidad de agua y el equilibrio de nutrientes. Ayudando a tu personal técnico a tomar decisiones inmediatas de manejo y realizar ajustes a la formulación nutricional de tu cultivo en caso de requerirlo.</p>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <!-- <button class="btn btn-primary" data-bs-target="#quienes2"  data-bs-toggle="modal">
+                                        <img src="../assets/images/About/6.svg" alt="" class="img-fluid" style="width:20px; height: 20px;">
+                                    </button> -->
+                                    <button class="btn btn-primary" type="button" data-bs-target="#comoHacemos" data-bs-slide="prev">
+                                        <!-- <span  ></span> -->
+                                        <img aria-hidden="true" src="../assets/images/About/5.svg" alt="" class="img-fluid" style="width:20px; height: 20px;">
+                                    </button>
+                                    <button class="btn btn-primary" type="button" data-bs-target="#comoHacemos" data-bs-slide="next">
+                                        <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span> -->
+                                        <img aria-hidden="true" src="../assets/images/About/6.svg" alt="" class="img-fluid" style="width:20px; height: 20px;">
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
                 <div class="col-md">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Launch demo modal
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#why">
+                        <img src="../assets/images/About/4.svg" alt="" class="img-fluid">
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal fade" id="why" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen-sm-down">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">¿Por qué lo hacemos?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="porque" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                          <div class="carousel-item active">
+                                            <p>Hay varios motivos que nos impulsan a hacer todo esto, primero que nada, lograr la satisfacción de nuestros clientes por supuesto. Nos llena de alegría y ganas de seguir continuando cuando vemos la sonrisa de un agricultor al ver que sus cultivos crecen y florecen gracias a las decisiones que tomo y a la confianza que nos tuvo.</p>
+                                          </div>
+                                          <div class="carousel-item">
+                                            <p>Por otro lado, buscamos que nuestros clientes aprendan durante todo este proceso, creemos fielmente que México necesita agricultores bien informados y actualizados porque ahí es donde comienza el cambio.</p>
+                                          </div>
+                                          <div class="carousel-item">
+                                            <p>Por último pero no menos importante, es que nosotros mismos nos visualizamos como la nueva forma de ver la agricultura y estamos comprometidos con mejorar la industria agrícola aportando nuestro granito de arena. </p>
+                                          </div>
+                                          <div class="carousel-item">
+                                            <p>Buscamos no solo que nuestros clientes, sino que además, otras personas dentro del giro se unan a nuestra manera de pensar y comiencen a usar tecnologías amigables con el medio ambiente.</p>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <!-- <button class="btn btn-primary" data-bs-target="#quienes2"  data-bs-toggle="modal">
+                                        <img src="../assets/images/About/6.svg" alt="" class="img-fluid" style="width:20px; height: 20px;">
+                                    </button> -->
+                                    <button class="btn btn-primary" type="button" data-bs-target="#porque" data-bs-slide="prev">
+                                        <!-- <span  ></span> -->
+                                        <img aria-hidden="true" src="../assets/images/About/5.svg" alt="" class="img-fluid" style="width:20px; height: 20px;">
+                                    </button>
+                                    <button class="btn btn-primary" type="button" data-bs-target="#porque" data-bs-slide="next">
+                                        <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span> -->
+                                        <img aria-hidden="true" src="../assets/images/About/6.svg" alt="" class="img-fluid" style="width:20px; height: 20px;">
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
