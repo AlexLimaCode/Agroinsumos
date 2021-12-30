@@ -278,6 +278,9 @@ section{
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
+.aboutHome{
+	background-color: var(--primary);
+}
 .aboutPage{
 	background-image: url(../assets/images/1.jpg);
 	background-size: cover;
