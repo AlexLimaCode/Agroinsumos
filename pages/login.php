@@ -2,9 +2,14 @@
     include('conection.php');
     include('funciones.php');
     session_start();
-    $_SESSION['correo'] = "";
+    if ($_SESSION['correo'] != "") {
+        
+    }else {
+        $_SESSION['correo'] = "";
+    }
     $bandera = "";
-
+    $padre = "";
+    $producto = "";
     if(isset($_POST["bandera"])){
         $bandera = trim($_POST["bandera"]); 
         if ($bandera == ""){
@@ -24,6 +29,52 @@
             $bandera = $_GET["bandera"];
             if ($bandera == ""){
                 $bandera = "";
+            }
+        }    
+    }
+
+    if(isset($_POST["padre"])){
+        $padre = trim($_POST["padre"]); 
+        if ($padre == ""){
+            if(isset($_GET["padre"])){
+                $padre = $_GET["padre"];
+                if ($padre == ""){
+                    $padre = "";
+                }
+            }
+        }
+    }    
+    else{ 
+        if ($padre == ""){
+            $padre = "";
+        }
+        if(isset($_GET["padre"])){ 
+            $padre = $_GET["padre"];
+            if ($padre == ""){
+                $padre = "";
+            }
+        }    
+    }
+
+    if(isset($_POST["producto"])){
+        $producto = trim($_POST["producto"]); 
+        if ($producto == ""){
+            if(isset($_GET["producto"])){
+                $producto = $_GET["producto"];
+                if ($producto == ""){
+                    $producto = "";
+                }
+            }
+        }
+    }    
+    else{ 
+        if ($producto == ""){
+            $producto = "";
+        }
+        if(isset($_GET["producto"])){ 
+            $producto = $_GET["producto"];
+            if ($producto == ""){
+                $producto = "";
             }
         }    
     }
@@ -102,70 +153,115 @@
     </script>
 </head>
 <body>
-    <!-- <section class="container-fluid bg">
-            <section class="row justify-content-center">
-                <section class="col-12 col-sm-6 col-md-3" >
-                <form action="login.php" method="post" class="form-container">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Usuario</label>
-                        <input type="text" class="form-control" aria-label="Username" placeholder="Ingrese su Usuario" name="usuario">
-                        <div id="emailHelp" class="form-text">Recuerda que el usuario solo es para administradores</div>
+    <?php
+        if ($_SESSION['correo'] != "" && $padre != 3) {
+            //QUIERE DECIR QUE ESTA EL USUARIO
+            $_SESSION['correo'] = "";
+            header("Location:login.php?padre=3");
+        } else if ($padre == 3 && $_SESSION['correo'] == "admin@gmail.com"){
+            //Va para el admin
+            //Entonces lo llevo a la pagina de admin
+        } else if ($padre == 3 && $_SESSION['correo'] == ""){
+            ?>
+            <section class="vh-100">
+                <div class="container-fluid h-custom">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-md-9 col-lg-6 col-xl-5">
+                        <img src="../assets/images/emLogo.png" class="img-fluid"
+                        alt="Sample image">
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese su Password" name="contraseña">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block" value="Ingresar">Ingresar</button>
-                </form>
-                </section>
-            </section>
-    </section> -->
-    <section class="vh-100">
-        <div class="container-fluid h-custom">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-md-9 col-lg-6 col-xl-5">
-                <img src="../assets/images/emLogo.png" class="img-fluid"
-                alt="Sample image">
-            </div>
-            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form action="verifySession.php?padre=1" method="post" class="form-container">
+                    <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                        <form action="verifySession.php?padre=2" method="post" class="form-container">
 
-                    <!-- Email input -->
-                    <div class="form-outline mb-4">
-                        <input type="email" id="form3Example3" class="form-control form-control-lg"
-                        placeholder="Enter a valid email address" />
-                        <label class="form-label" for="form3Example3">Correo Electronico</label>
-                    </div>
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <input type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Enter a valid email address" name="correo"/>
+                                <label class="form-label" for="form3Example3">Correo Electronico</label>
+                            </div>
 
-                    <!-- Password input -->
-                    <div class="form-outline mb-3">
-                        <input type="password" id="form3Example4" class="form-control form-control-lg"
-                        placeholder="Enter password" />
-                        <label class="form-label" for="form3Example4">Contraseña</label>
-                    </div>
+                            <!-- Password input -->
+                            <div class="form-outline mb-3">
+                                <input type="password" id="form3Example4" class="form-control form-control-lg"
+                                placeholder="Enter password" name="contrasenia"/>
+                                <label class="form-label" for="form3Example4">Contraseña</label>
+                            </div>
 
-                    <div class="text-center text-lg-start mt-4 pt-2">
-                        <button type="submit" class="btn btn-success btn-lg"
-                        style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar</button>
-                        <p class="small fw-bold mt-2 pt-1 mb-0">¿Aun no tienes cuenta? <a href="#!"
-                            class="link-danger">Register</a></p>
-                    </div>
+                            <div class="text-center text-lg-start mt-4 pt-2">
+                                <button type="submit" class="btn btn-success btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar</button>
+                            </div>
 
-                </form>
-                <?php
-                    if($bandera != ""){
-                        ?>
-                        <br>
-                        <div class="alert alert-danger" role="alert">
-                            Datos incorrectos!!
-                        </div>
+                        </form>
                         <?php
-                    }
-                ?>
-            </div>
-            </div>
-        </div>
-    </section>
+                            if($bandera != ""){
+                                ?>
+                                <br>
+                                <div class="alert alert-danger" role="alert">
+                                    Datos incorrectos!!
+                                </div>
+                                <?php
+                            }
+                        ?>
+                    </div>
+                    </div>
+                </div>
+            </section>
+            <?php
+        } else if ($_SESSION['correo'] == "" && $padre != 3){
+            //Hacer login de persona
+            ?>
+            <section class="vh-100">
+                <div class="container-fluid h-custom">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-md-9 col-lg-6 col-xl-5">
+                        <img src="../assets/images/emLogo.png" class="img-fluid"
+                        alt="Sample image">
+                    </div>
+                    <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                        <form action="verifySession.php?padre=1" method="post" class="form-container">
+
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <input type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Enter a valid email address" name="correo"/>
+                                <label class="form-label" for="form3Example3">Correo Electronico</label>
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-3">
+                                <input type="password" id="form3Example4" class="form-control form-control-lg"
+                                placeholder="Enter password" name="contrasenia"/>
+                                <label class="form-label" for="form3Example4">Contraseña</label>
+                            </div>
+
+                            <div class="text-center text-lg-start mt-4 pt-2">
+                                <button type="submit" class="btn btn-success btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar</button>
+                                <p class="small fw-bold mt-2 pt-1 mb-0">¿Aun no tienes cuenta? <a href="createAccount.php"
+                                    class="link-danger">Register</a></p>
+                            </div>
+
+                        </form>
+                        <?php
+                            if($bandera != ""){
+                                ?>
+                                <br>
+                                <div class="alert alert-danger" role="alert">
+                                    Datos incorrectos!!
+                                </div>
+                                <?php
+                            }
+                        ?>
+                    </div>
+                    </div>
+                </div>
+            </section>
+            <?php
+        }
+        
+    ?>
+    
     <!-- Scripts -->
     <script src="../js/bootstrap.min.js"></script><!-- Bootstrap framework -->
     <script src="../js/purecounter.min.js"></script> <!-- Purecounter counter for statistics numbers -->

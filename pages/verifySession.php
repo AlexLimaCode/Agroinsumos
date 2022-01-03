@@ -91,6 +91,65 @@
                 header("Location:login.php?bandera=2");
             }
         }
+    }else if ($padre == 2){
+        $correo = "";
+        $contrasenia = "";
+
+        if(isset($_POST["correo"])){
+            $correo = trim($_POST["correo"]); 
+            if ($correo == ""){
+                if(isset($_GET["correo"])){
+                    $correo = $_GET["correo"];
+                    if ($correo == ""){
+                        $correo = "";
+                    }
+                }
+            }
+        }    
+        else{ 
+            if ($correo == ""){
+                $correo = "";
+            }
+            if(isset($_GET["correo"])){ 
+                $correo = $_GET["correo"];
+                if ($correo == ""){
+                    $correo = "";
+                }
+            }    
+        }
+    
+        if(isset($_POST["contrasenia"])){
+            $contrasenia = trim($_POST["contrasenia"]); 
+            if ($contrasenia == ""){
+                if(isset($_GET["contrasenia"])){
+                    $contrasenia = $_GET["contrasenia"];
+                    if ($contrasenia == ""){
+                        $contrasenia = "";
+                    }
+                }
+            }
+        }    
+        else{ 
+            if ($contrasenia == ""){
+                $contrasenia = "";
+            }
+            if(isset($_GET["contrasenia"])){ 
+                $contrasenia = $_GET["contrasenia"];
+                if ($contrasenia == ""){
+                    $contrasenia = "";
+                }
+            }    
+        }
+
+        $query = "select IdUsuario from usuariosadmin where Correo = '".$correo."' and Contrasenia = '".$contrasenia."'";
+        $result = mysqli_query($conn,$query);
+        if(mysqli_num_rows($result)>0){
+            //Mando al panel de control de admin
+            $_SESSION['correo'] = $correo;
+            header("Location:dashboard.php");
+        }else{
+            header("Location:login.php?bandera=2");
+        }
     }else{
         $name = $_POST['nombre'];
         $contrasenia = $_POST['contrasenia'];  
