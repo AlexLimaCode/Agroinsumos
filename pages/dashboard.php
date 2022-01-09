@@ -52,7 +52,7 @@
                                 <h5 class="card-title">Productos</h5>
                                 <p class="card-text">Sube un producto que contenga titulo, descripcion, lista de contenido (separada por comas), foto, tipo de producto, presentaciones (separadas por comas), beneficios y pdf</p>
                                 <br>
-                                <a href="#" class="btn btn-primary">Subir producto</a>
+                                <a href="upProducts.php" class="btn btn-primary">Subir producto</a>
                             </div>
                         </div>
                     </div>

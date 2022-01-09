@@ -3,7 +3,29 @@
     include('conection.php');
     include('funciones.php');
 
-
+    $padre="";
+    if(isset($_POST["padre"])){
+        $padre = trim($_POST["padre"]); 
+        if ($padre == ""){
+            if(isset($_GET["padre"])){
+                $padre = $_GET["padre"];
+                if ($padre == ""){
+                    $padre = "";
+                }
+            }
+        }
+    }    
+    else{ 
+        if ($padre == ""){
+            $padre = "";
+        }
+        if(isset($_GET["padre"])){ 
+            $padre = $_GET["padre"];
+            if ($padre == ""){
+                $padre = "";
+            }
+        }    
+    }
 
 ?>
 
@@ -27,7 +49,7 @@
         <div class="mb-3">
         <br>
         <h4 class="text-center">Llena los datos del testimonio</h4>
-            <form method='post' enctype='multipart/form-data' action='./modificacion.php?padre=3&accion=1' name='principal'>
+            <form method='post' enctype='multipart/form-data' action='./upload.php?padre=2' name='principal'>
                 <div class="col-md-4">
                     <label for="validationDefault01" class="form-label" style="color:black;">Nombre del usuario</label>
                     <input type="text" class="form-control" id="validationDefault01" name="name" placeholder="Nombre" required>
@@ -50,7 +72,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="validationDefault02" class="form-label" style="color:black;">Frase relevante del testimonio</label>
-                    <input type="text" class="form-control" id="validationDefault02" name="frase" placeholder="'El mejor producto...'" required>
+                    <input type="text" class="form-control" id="validationDefault02" name="frase" placeholder="El mejor producto..." required>
                 </div>
                 <div class="col-md-4">
                     <label for="validationDefault02" class="form-label" style="color:black;">Imagen</label>
@@ -61,7 +83,26 @@
                     <input type="file" class="form-control" id="validationDefault02" name="vi1" required>
                 </div>
                 <br>
-                <button class='btn btn-outline-dark btnBajo' type='submit' href='./modificacion.php?padre=3&accion=1'>Registrar</button>
+                <button class='btn btn-outline-dark btnBajo' type='submit' href='./upload.php?padre=2'>Registrar</button>
+                <?php
+
+                if ($padre == 1) {
+                ?>
+                    <br>
+                    <div class="alert alert-success" role="alert">
+                        Registro exitoso!!
+                    </div>
+                <?php
+                }else if ($padre == 2) {
+                ?>
+                    <br>
+                    <div class="alert alert-danger" role="alert">
+                        Datos incorrectos!!
+                    </div>
+                <?php
+                }
+
+                ?>
             </form>
         </div>
     </div>
