@@ -1,3 +1,78 @@
+<?php
+
+    include('conection.php');
+    include('funciones.php');
+    $id = 0;
+    $idp = 0;
+    if(isset($_POST["id"])){
+        $id = trim($_POST["id"]); 
+        if ($id == ""){
+            if(isset($_GET["id"])){
+                $id = $_GET["id"];
+                if ($id == ""){
+                    $id = "";
+                }
+            }
+        }
+    }    
+    else{ 
+        if ($id == ""){
+            $id = "";
+        }
+        if(isset($_GET["id"])){ 
+            $id = $_GET["id"];
+            if ($id == ""){
+                $id = "";
+            }
+        }    
+    }
+    if(isset($_POST["idp"])){
+        $idp = trim($_POST["idp"]); 
+        if ($idp == ""){
+            if(isset($_GET["idp"])){
+                $idp = $_GET["idp"];
+                if ($idp == ""){
+                    $idp = "";
+                }
+            }
+        }
+    }    
+    else{ 
+        if ($idp == ""){
+            $idp = "";
+        }
+        if(isset($_GET["idp"])){ 
+            $idp = $_GET["idp"];
+            if ($idp == ""){
+                $idp = "";
+            }
+        }
+    }
+
+    $nombre = "";
+    $descripcion = "";
+    $contenido = "";
+    $presentaciones = "";
+    $beneficios = "";
+    $pdf = "";
+    $imagen = "";
+
+    $query = "select Nombre, p.Descripcion, Contenido, Presentaciones, Beneficios, Imagen, Pdf, t.Descripcion from productos p, tipoproductos t where p.IdTipoProducto = t.IdTipoProducto and IdProducto = ".$id;
+    $result = mysqli_query($conn,$query);
+    if(mysqli_num_rows($result)>0){
+        while($row = mysqli_fetch_array($result)){
+            $nombre = $row['Nombre'];
+            $descripcion = $row[1];
+            $contenido = $row['Contenido'];
+            $presentaciones = $row['Presentaciones'];
+            $beneficios = $row['Beneficios'];
+            $imagen = $row['Imagen'];
+            $pdf = $row['Pdf'];
+            $tipoproductos = $row[7];
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -113,19 +188,33 @@
         <br><br><br>
         <div class="container text-light">
             <div class="text-center pb-4" >
-                <h2 class="py-2">Titulo del producto</h2>
-                <h4 class="para-light">Descripcion del producto, algunas cosas</h4>
+                <h2 class="py-2"><?php echo $nombre;?></h2>
             </div>
             <br><br><br>
             <div class="row">
                 
                 <div class="col-4">
-                    <img src="../assets/products/2.png" class="img-fluid" alt="">
+                   <?php echo '<img src="../products/images/'.$imagen.'" class="img-fluid" alt="">' ?>
                 </div>
                 <div class="col-md">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi laboriosam voluptas veritatis debitis quam facere, exercitationem earum tempora facilis deserunt quo modi, nam sequi, similique temporibus nihil harum voluptatibus perferendis.</p>
+                    <h5>Sobre el producto</h5>
+                    <hr>
+                    <p><?php echo $descripcion; ?></p>
+                    <br>
+                    <h5>Beneficios</h5>
+                    <hr>
+                    <p><?php echo $beneficios; ?></p>
+                    <br>
+                    <h5>Contenido</h5>
+                    <hr>
+                    <p><?php echo $contenido; ?></p>
+                    <br>
+                    <h5>Presentaciones</h5>
+                    <hr>
+                    <p><?php echo $presentaciones; ?></p>
                     <br><br><br>
-                    <a class="btn btn-primary" href="verifySession.php">Solicitar ficha técnica</a>
+                    <?php echo '<a class="btn btn-primary" href="verifySession.php?pdf='.$pdf.'">Solicitar ficha técnica</a>'; ?>
+                    <br><br>
                 </div>
             </div>
         </div> <!-- end of container -->

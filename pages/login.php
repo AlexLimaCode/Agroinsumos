@@ -2,6 +2,7 @@
     include('conection.php');
     include('funciones.php');
     session_start();
+    $correo = "";
     if ($_SESSION['correo'] != "") {
         
     }else {
@@ -29,6 +30,30 @@
             $bandera = $_GET["bandera"];
             if ($bandera == ""){
                 $bandera = "";
+            }
+        }    
+    }
+
+    $pdf = "";
+    if(isset($_POST["pdf"])){
+        $pdf = trim($_POST["pdf"]); 
+        if ($pdf == ""){
+            if(isset($_GET["pdf"])){
+                $pdf = $_GET["pdf"];
+                if ($pdf == ""){
+                    $pdf = "";
+                }
+            }
+        }
+    }    
+    else{ 
+        if ($pdf == ""){
+            $pdf = "";
+        }
+        if(isset($_GET["pdf"])){ 
+            $pdf = $_GET["pdf"];
+            if ($pdf == ""){
+                $pdf = "";
             }
         }    
     }
@@ -157,7 +182,7 @@
         if ($_SESSION['correo'] != "" && $padre != 3) {
             //QUIERE DECIR QUE ESTA EL USUARIO
             $_SESSION['correo'] = "";
-            header("Location:login.php?padre=3");
+            header("Location:login.php?padre=3&pdf=".$pdf);
         } else if ($padre == 3 && $_SESSION['correo'] == "admin@gmail.com"){
             //Va para el admin
             //Entonces lo llevo a la pagina de admin
@@ -179,7 +204,7 @@
                                 placeholder="Enter a valid email address" name="correo"/>
                                 <label class="form-label" for="form3Example3">Correo Electronico</label>
                             </div>
-
+                            <input type="hidden" value="<?php echo $pdf; ?>" name = "pdf">
                             <!-- Password input -->
                             <div class="form-outline mb-3">
                                 <input type="password" id="form3Example4" class="form-control form-control-lg"
@@ -234,7 +259,7 @@
                                 placeholder="Enter password" name="contrasenia"/>
                                 <label class="form-label" for="form3Example4">Contraseña</label>
                             </div>
-
+                            <input type="hidden" value="<?php echo $pdf; ?>" name = "pdf">
                             <div class="text-center text-lg-start mt-4 pt-2">
                                 <button type="submit" class="btn btn-success btn-lg"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar</button>

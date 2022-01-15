@@ -1,3 +1,10 @@
+<?php
+
+include('conection.php');
+include('funciones.php');
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -109,113 +116,107 @@
 
 
     
-    <section style="background-color: #D9DFC2;">
-        <br><br><br>
-        <div class="container text-light">
-            <div class="text-center pb-4" >
-                <h2 class="py-2">Actualmente contamos con</h2>
-                <h4 class="para-light">Sistemas de bio nutriprotección para mas de 120 cultivos:</h4>
-            </div>
-            <div class="row">
-                <div class="col-md">
-                    <a href="./specifications.html">
-                        <div class="productsCard bg-transparent hover-zoom image">
-                            <img src="../assets/products/2.png" class="img-fluid">
-                            <br><br>
-                            <div class="text-center">
-                                <h1>
-                                    Titulo de Producto
-                                </h1>
-                                <p>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                </p>
-                            </div>
+    
+    <?php
+        $id = 0;
+        $nombre = "";
+        $descripcion = "";
+        $query = "select IdTipoProducto, Descripcion, Resumen from tipoproductos order by IdTipoProducto asc";
+        $result = mysqli_query($conn,$query);
+        if(mysqli_num_rows($result)>0){
+            while($row = mysqli_fetch_array($result)){
+                $id = $row['IdTipoProducto'];
+                $nombre = $row['Descripcion'];
+                $descripcion = $row['Resumen'];
+                ?>
+                <section style="background-color: #D9DFC2;">
+                    <br><br><br>
+                    <div class="container text-light">
+                        <div class="text-center pb-4" >
+                            <h2 class="py-2"><?php echo $nombre; ?></h2>
+                            <h4 class="para-light"><?php echo $descripcion; ?></h4>
                         </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="./specifications.html">
-                        <div class="productsCard bg-transparent image">
-                            <img src="../assets/products/2.png" class="img-fluid">
-                            <br><br>
-                            <div class="text-center">
-                                <h1>
-                                    Titulo de Producto
-                                </h1>
-                                <p>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                </p>
+                        <div class="row">
+                        <?php
+                            $query2 = "select IdProducto, Nombre, Descripcion from productos where IdTipoProducto = ".$id;
+                            //echo $query2;
+                            $result2 = mysqli_query($conn,$query2);
+                            if(mysqli_num_rows($result2)>0){
+                                while($row2 = mysqli_fetch_array($result2)){
+                                    $idP = $row2['IdProducto'];
+                                    $nombreProduct = $row2['Nombre'];
+                                    $descripcionp = $row2['Descripcion'];
+                                    ?>
+                                        <div class="col-md">
+                                            <?php echo '<a href="./specifications.php?id='.$idP.'&tipo='.$id.'">'; ?>
+                                                <div class="productsCard bg-transparent hover-zoom image">
+                                                    <?php
+                                                        $query3 = "select Imagen from productos where IdProducto = ".$idP;
+                                                        $result3 = mysqli_query($conn,$query3);
+                                                        $imagen = "";
+                                                        while ($row3 = mysqli_fetch_array($result3)){
+                                                            $imagen = $row3['Imagen'];
+                                                        }
+                                                        //echo $imagen;
+                                                        echo '<img src="../products/images/'.$imagen.'" class="img-fluid"
+                                                        >';
+                                                    ?>
+                                                    <br><br>
+                                                    <div class="text-center">
+                                                        <h1>
+                                                            <?php echo $nombreProduct; ?>
+                                                        </h1>
+                                                        <p>
+                                                            <?php echo $descripcionp; ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    <?php
+                                }
+                            } 
+                        ?>
+                            <div class="col-md">
+                                <a href="./specifications.html">
+                                    <div class="productsCard bg-transparent image">
+                                        <img src="../assets/products/2.png" class="img-fluid">
+                                        <br><br>
+                                        <div class="text-center">
+                                            <h1>
+                                                Titulo de Producto
+                                            </h1>
+                                            <p>
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="./specifications.html">
-                        <div class="productsCard bg-transparent image">
-                            <img src="../assets/products/2.png" class="img-fluid">
-                            <br><br>
-                            <div class="text-center">
-                                <h1>
-                                    Titulo de Producto
-                                </h1>
-                                <p>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                </p>
+                            <div class="col-md">
+                                <a href="./specifications.html">
+                                    <div class="productsCard bg-transparent image">
+                                        <img src="../assets/products/2.png" class="img-fluid">
+                                        <br><br>
+                                        <div class="text-center">
+                                            <h1>
+                                                Titulo de Producto
+                                            </h1>
+                                            <p>
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="./specifications.html">
-                        <div class="productsCard bg-transparent image">
-                            <img src="../assets/products/2.png" class="img-fluid">
-                            <br><br>
-                            <div class="text-center">
-                                <h1>
-                                    Titulo de Producto
-                                </h1>
-                                <p>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="./specifications.html">
-                        <div class="productsCard bg-transparent image">
-                            <img src="../assets/products/2.png" class="img-fluid">
-                            <br><br>
-                            <div class="text-center">
-                                <h1>
-                                    Titulo de Producto
-                                </h1>
-                                <p>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="./specifications.html">
-                        <div class="productsCard bg-transparent image">
-                            <img src="../assets/products/2.png" class="img-fluid">
-                            <br><br>
-                            <div class="text-center">
-                                <h1>
-                                    Titulo de Producto
-                                </h1>
-                                <p>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </section> <!-- end of services -->
+                        </div> <!-- end of row -->
+                    </div> <!-- end of container -->
+                </section> <!-- end of services -->
+                <?php
+            }
+        }
+
+    ?>
 
     <!-- Scripts -->
     <script src="../js/bootstrap.min.js"></script><!-- Bootstrap framework -->
