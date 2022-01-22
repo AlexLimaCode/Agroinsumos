@@ -106,6 +106,8 @@
 
                 ?>
             </form>
+            <br>
+            <a class ='btn btn-primary' href="./dashboard.php">Regresar</a>
         </div>
     </div>
     <!-- Scripts -->

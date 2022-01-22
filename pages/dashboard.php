@@ -56,6 +56,28 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md">
+                        <div class="card" style="width: 30rem;">
+                            <img src="../assets/images/emLogo.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Borrar Testimonios</h5>
+                                <p class="card-text">Elimina algun testimonio que este erroneo y subelo de nuevo</p>
+                                <br>
+                                <a href="deleteItems.php?padre=1" class="btn btn-primary">Eliminar testimonio</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="card" style="width: 30rem;">
+                            <img src="../assets/images/emLogo.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Borrar Productos</h5>
+                                <p class="card-text">Elimina algun producto que este erroneo y subelo de nuevo</p>
+                                <br>
+                                <a href="deleteItems.php?padre=2" class="btn btn-primary">Eliminar producto</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Scripts -->

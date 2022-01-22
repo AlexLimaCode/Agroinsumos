@@ -166,7 +166,7 @@ include('funciones.php');
                                                         <h1>
                                                             <?php echo $nombreProduct; ?>
                                                         </h1>
-                                                        <p>
+                                                        <p style="text-align: justify; text-justify: inter-word;">
                                                             <?php echo $descripcionp; ?>
                                                         </p>
                                                     </div>
@@ -186,8 +186,8 @@ include('funciones.php');
                                             <h1>
                                                 Titulo de Producto
                                             </h1>
-                                            <p>
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                            <p style="text-align: justify; text-justify: inter-word;">
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                                             </p>
                                         </div>
                                     </div>
