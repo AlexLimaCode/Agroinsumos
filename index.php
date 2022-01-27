@@ -51,7 +51,7 @@ include('./pages/funciones.php');
             <!-- <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
 
             <!-- Text Logo - Use this if you don't have a graphic logo -->
-            <a class="navbar-brand logo-text" href="index.html"><img src="./assets/images/emLogo.png" style="width: 130px; height: 100px;" alt=""></a>
+            <a class="navbar-brand logo-text" href="index.php"><img src="./assets/images/emLogo.png" style="width: 130px; height: 100px;" alt=""></a>
 
             <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -68,9 +68,9 @@ include('./pages/funciones.php');
                     <li class="nav-item">
                         <a class="nav-link" href="./pages/products.php">Catalogo de soluciones</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#plans">Nuestro Trabajo</a>
-                    </li>
+                    </li> -->
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false" href="#">Drop</a>
                         
@@ -135,40 +135,30 @@ include('./pages/funciones.php');
     </section> <!-- end of about -->
 
     <br><br><br>
-    <!-- Services -->
-    <section class="services d-flex align-items-center py-5" id="services">
-        <div class="container text-light text-center">
-            <div class="text-center pb-4" >
-                <h2 class="py-2">Somos una distribuidora con </h2><span><h2 class="py-2" style="color:orange;"> +40 soluciones</h2></span>
-                <h2 class="py-2">distintas para tu cultivo</h2>
-            </div>
-            <div class="row gy-4 " data-aos="zoom-in">
-                <?php
-                    for ($i=1; $i < 10; $i++) { 
-                        ?>
-                        <div class="col-lg-3">
-                            <div class="card bg-transparent">.
-                        <?php
-                                echo "<img src='./assets/products/".$i.".svg'>"
-                        ?>
-                            </div>
-                        </div>
-                        <?php
-                    }
+    <div class="container">
+        <div class="text-center pb-4" >
+            <h2 class="py-2">Somos una distribuidora con </h2><span><h2 class="py-2" style="color:orange;"> +40 soluciones</h2></span>
+            <h2 class="py-2">distintas para tu cultivo</h2>
+        </div>
+        <div class="row">
+        <?php
+            for ($i=1; $i < 10; $i++) { 
                 ?>
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </section> <!-- end of services -->
+                <div class="col-md-3">
+                    <?php
+                        echo "<a href='./pages/products.php#".$i."'><img class='img-fluid' src='./assets/products/".$i.".svg'></a>"
+                    ?>
+                </div>
+                <?php
+            }
+        ?>
+        </div>
+    </div>
+
+
+
     <br><br><br>
-    <!-- Services -->
-    <section class="aboutHome d-flex align-items-center text-light py-5" id="about">
-        <div class="container text-light text-center">
-            <div class="text-center pb-4" >
-                <h2 class="py-2">Estamos 100% comprometidos con nuestros valores, por esa razón solo estamos asociados con aquellas marcas que compartan "La Nueva Forma De Ver La Agricultura".</h2>
-                <img src="./assets/images/home/banner.svg" alt="" class="img-fluid">
-            </div>
-        </div> <!-- end of container -->
-    </section> <!-- end of services -->
+    
 
     <?php
 
@@ -245,138 +235,89 @@ include('./pages/funciones.php');
     <section class="contact d-flex align-items-center py-5" id="contact">
         <div class="container-fluid text-light">
             <div class="row">
-                <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end align-items-center px-lg-5" data-aos="fade-right">
+                <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end align-items-center px-lg-5"
+                    data-aos="fade-right">
                     <div style="width:90%">
                         <div class="text-center text-lg-start py-4 pt-lg-0">
-                            <p>CONTACT</p>
-                            <h2 class="py-2">Send your query</h2>
-                            <p class="para-light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos dicta mollitia totam explicabo obcaecati quia laudantium repudiandae.</p>
+                            <p style="text-align: justify; text-justify: inter-word;">CONTACTO</p>
+                            <h2 class="py-2">Envianos tus requerimietos</h2>
+                            <p class="para-light">
+                                Realizamos cualquier cotizacion de acuerdo a tus necesidades y tu presupuesto
+                            </p>
                         </div>
                         <div>
-                            <div class="row" >
+                            <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group py-2">
-                                        <input type="text" class="form-control form-control-input" id="exampleFormControlInput1" placeholder="Enter name">
-                                    </div>                                
+                                        <input type="text" class="form-control form-control-input"
+                                            id="exampleFormControlInput1" placeholder="Nombre completo" required>
+                                    </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group py-2">
-                                        <input type="email" class="form-control form-control-input" id="exampleFormControlInput2" placeholder="Enter phone number">
-                                    </div>                                 
+                                        <input type="text" class="form-control form-control-input"
+                                            id="exampleFormControlInput2" placeholder="Telefono" required>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group py-1">
-                                <input type="email" class="form-control form-control-input" id="exampleFormControlInput3" placeholder="Enter email">
-                            </div>  
+                                <input type="email" class="form-control form-control-input"
+                                    id="exampleFormControlInput3" placeholder="Correo Electronico" required>
+                            </div>
+                            <div class="form-group py-1">
+                                <label> Selecciona el tipo de cultivo:</label>
+                                <br>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option value="Jitomate">Jitomate</option>
+                                    <option value="Pepino">Pepino</option>
+                                    <option value="Pimiento">Pimiento</option>
+                                    <option value="Flores">Flores</option>
+                                    <option value="Fresa">Fresa</option>
+                                    <option value="Maiz">Maíz</option>
+                                    <option value="Trigo">Trigo</option>
+                                    <option value="Cebada">Cebada</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </div>
+                            <div class="form-group py-1">
+                                <label>Actividad:</label>
+                                <br>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option value="Producto">Producto</option>
+                                    <option value="Asesor">Asesor</option>
+                                    <option value="Estudiante">Estudiante</option>
+                                </select>
+                            </div>
+                            <div class="form-group py-1">
+                                <div id="country">
+                                    <label>País</label>
+                                    <input class="form-control" id="countryInput" type="text" tabindex="3"
+                                        name="country">
+                                </div>
+                                <div id="city">
+                                    <label>Ciudad</label>
+                                    <input class="form-control" id="cityInput" type="text" tabindex="3" name="city">
+                                </div>
+                            </div>
                             <div class="form-group py-2">
-                                <textarea class="form-control form-control-input" id="exampleFormControlTextarea1" rows="6" placeholder="Message"></textarea>
-                            </div>                            
+                                <textarea class="form-control form-control-input" id="exampleFormControlTextarea1"
+                                    rows="6" placeholder="Message"></textarea>
+                            </div>
                         </div>
                         <div class="my-3">
-                            <a class="btn form-control-submit-button" href="#your-link">Submit</a>
+                            <a class="btn btn-success" href="#your-link">Enviar</a>
                         </div>
                     </div> <!-- end of div -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6 d-flex align-items-center" data-aos="fade-down">
                     <div class="container">
-                        <img class="img-fluid d-none d-lg-block" src="./assets/images/contact.jpg" alt="contact">        
+                        <img class="img-fluid d-none d-lg-block" src="./assets/images/emLogo.png" alt="contact"
+                            style="width:600px; height:500px;">
                     </div>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
     </section> <!-- end of contact -->
-
-
-
-    <!-- Footer -->
-    <section class="footer text-light">
-        <div class="container">
-            <div class="row" data-aos="fade-right">
-                <div class="col-lg-3 py-4 py-md-5">
-                    <div class="d-flex align-items-center">
-                        <h4 class="">EM Agroinsumos</h4>
-                    </div>
-                    <p class="py-3 para-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus animi repudiandae explicabo esse maxime, impedit rem voluptatibus amet error quas.</p>
-                    <div class="d-flex">
-                        <div class="me-3">
-                            <a href="#your-link">
-                                <i class="fab fa-facebook-f fa-2x py-2"></i>
-                            </a>
-                        </div>
-                        <div class="me-3">
-                            <a href="#your-link">
-                                <i class="fab fa-twitter fa-2x py-2"></i>
-                            </a>
-                        </div>
-                        <div class="me-3">
-                            <a href="#your-link">
-                                <i class="fab fa-instagram fa-2x py-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div> <!-- end of col -->
-
-                <div class="col-lg-3 py-4 py-md-5">
-                    <div>
-                        <h4 class="py-2">Paginas</h4>
-                        <div class="d-flex align-items-center py-2">
-                            <i class="fas fa-caret-right"></i>
-                            <a href="#about"><p class="ms-3">Conocenos</p></a>
-                        </div>
-                        <div class="d-flex align-items-center py-2">
-                            <i class="fas fa-caret-right"></i>
-                            <a href="#"><p class="ms-3">Clientes</p></a>
-                        </div>
-                        <div class="d-flex align-items-center py-2">
-                            <i class="fas fa-caret-right"></i>
-                            <a href="#"><p class="ms-3">Productos</p></a>
-                        </div>
-                        <div class="d-flex align-items-center py-2">
-                            <i class="fas fa-caret-right"></i>
-                            <a href="#"><p class="ms-3">Testimonios</p></a>
-                        </div>
-                    </div>
-                </div> <!-- end of col -->
-
-                <div class="col-lg-3 py-4 py-md-5">
-                    <div>
-                        <h4 class="py-2">Links Frecuentes</h4>
-                        <div class="d-flex align-items-center py-2">
-                            <i class="fas fa-caret-right"></i>
-                            <a href="privacy.html"><p class="ms-3">Privacy</p></a>
-                            
-                        </div>
-                        <div class="d-flex align-items-center py-2">
-                            <i class="fas fa-caret-right"></i>
-                            <a href="terms.html"><p class="ms-3">Terms</p></a>
-                        </div>
-                        <div class="d-flex align-items-center py-2">
-                            <i class="fas fa-caret-right"></i>
-                            <a href="#your-link"><p class="ms-3">Contacto</p></a>
-                        </div>
-                        <div class="d-flex align-items-center py-2">
-                            <i class="fas fa-caret-right"></i>
-                            <a href="#your-link"><p class="ms-3">FAQ</p></a>
-                        </div>
-                    </div>
-                </div> <!-- end of col -->
-
-                <div class="col-lg-3 py-4 py-md-5">
-                    <div class="d-flex align-items-center">
-                        <h4>Suscribirse</h4>
-                    </div>
-                    <p class="py-3 para-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, ab.</p>
-                    <div class="d-flex align-items-center">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control p-2" placeholder="Enter Email" aria-label="Recipient's email">
-                            <button class="btn-secondary text-light"><i class="fas fa-envelope fa-lg"></i></button>       
-                        </div>
-                    </div>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </section> <!-- end of footer -->
-
 
     <!-- Bottom -->
     <div class="bottom py-2 text-light" >
