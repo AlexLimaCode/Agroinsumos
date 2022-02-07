@@ -128,7 +128,7 @@ include('./pages/funciones.php');
                     <h3>Conoce lo que tu cultivo necesita <br> de forma rapida y sencilla</h3>
                 </div>
                 <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down"> 
-                    <img class="img-fluid" src="./assets/images/about.jpg" alt="about" >
+                    <img class="img-fluid" src="./assets/images/home/mejorador.png" alt="about" >
                 </div>
             </div> <!-- end of row -->
         </div> <!-- end of container -->

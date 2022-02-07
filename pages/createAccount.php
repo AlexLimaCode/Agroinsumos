@@ -26,6 +26,29 @@
             }
         }    
     }
+    $pdf = "";
+    if(isset($_POST["pdf"])){
+        $pdf = trim($_POST["pdf"]); 
+        if ($pdf == ""){
+            if(isset($_GET["pdf"])){
+                $pdf = $_GET["pdf"];
+                if ($pdf == ""){
+                    $pdf = "";
+                }
+            }
+        }
+    }    
+    else{ 
+        if ($pdf == ""){
+            $pdf = "";
+        }
+        if(isset($_GET["pdf"])){ 
+            $pdf = $_GET["pdf"];
+            if ($pdf == ""){
+                $pdf = "";
+            }
+        }    
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,7 +122,7 @@
                 alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form action="verifySession.php?padre=2" enctype='multipart/form-data' method="post" class="form-container" name='principal'>
+                <form action="verifySession.php?padre=3" enctype='multipart/form-data' method="post" class="form-container" name='principal'>
                     <br>
                     <!-- Email input -->
                     <div class="form-outline ">
@@ -162,6 +185,8 @@
                         <button type="submit" class="btn btn-success btn-lg"
                         style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar</button>
                     </div>
+
+                    <input type="hidden" value=<?php echo $pdf; ?> name = "pdf">
                 </form>
                 <?php
                     if($bandera != ""){

@@ -39,7 +39,6 @@
         $query = "INSERT INTO productos(Nombre, Descripcion, IdTipoProducto, Contenido, Presentaciones, Beneficios) 
         VALUES('".$name."','".$des."','".$tipo."', '".$contenido."', '".$presentaciones."', '".$beneficios."')";
         $result = mysqli_query($conn,$query);
-        echo $query."\n\n\n";
         $query = "select IdProducto from productos order by IdProducto desc limit 1";
         $result = mysqli_query($conn,$query);
         if (mysqli_num_rows($result)>0) {
@@ -56,7 +55,7 @@
         $tipo = $_FILES['im1']['type'];
         $temp = $_FILES['im1']['tmp_name'];
         //$imagen = "imagen-".$id;
-        echo $imagen."\n";
+        //echo $imagen."\n";
         move_uploaded_file($temp,'../products/images/'.$id.'-'.$imagen);
 
         $pdf = $_FILES['pdf']['name'];
@@ -66,7 +65,7 @@
 
         // Now let's Insert the pdf path into database
         $sql = "update productos set Imagen = '".$id."-".$imagen."', Pdf = '".$id.'-'.$pdf."' where IdProducto = ".$id;
-        echo $sql;
+        //echo $sql;
         mysqli_query($conn, $sql);
         header("Location: upProducts.php?padre=1");
 
@@ -81,7 +80,7 @@
         $query = "INSERT INTO testimonios(Nombre, IdActividad, IdTipo, Descripcion, Frase) 
         VALUES('".$name."','".$actividad."','".$cultivo."','".$des."','".$frase."')";
         $result = mysqli_query($conn,$query);
-        echo $query."\n\n\n";
+        //echo $query."\n\n\n";
         $query = "select IdTestimonio from testimonios order by IdTestimonio desc limit 1";
         $result = mysqli_query($conn,$query);
         if (mysqli_num_rows($result)>0) {
@@ -98,7 +97,7 @@
         $tipo = $_FILES['im1']['type'];
         $temp = $_FILES['im1']['tmp_name'];
         //$imagen = "imagen-".$id;
-        echo $imagen."\n";
+        //echo $imagen."\n";
         move_uploaded_file($temp,'../testimonials/images/'.$id.'-'.$imagen);
 
 
@@ -113,18 +112,18 @@
 
             $video_ex_lc = strtolower($video_ex);
 
-            $allowed_exs = array("mp4", 'webm', 'avi', 'flv');
+            $allowed_exs = array("mp4", 'webm', 'avi', 'flv', 'M4V');
 
             if (in_array($video_ex_lc, $allowed_exs)) {
                 
                 $new_video_name = uniqid($id."-video-", false). '.'.$video_ex_lc;
                 $video_upload_path = '../testimonials/videos/'.$new_video_name;
-                echo $video_upload_path."\t";
+                //echo $video_upload_path."\t";
                 move_uploaded_file($tmp_name, $video_upload_path);
 
                 // Now let's Insert the video path into database
                 $sql = "update testimonios set Imagen = '".$id."-".$imagen."', Video = '".$new_video_name."' where IdTestimonio = ".$id;
-                echo $sql;
+                //echo $sql;
                 mysqli_query($conn, $sql);
                 header("Location: upTestimonials.php?padre=1");
             }else {

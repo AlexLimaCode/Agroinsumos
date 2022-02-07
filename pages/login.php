@@ -3,11 +3,30 @@
     include('funciones.php');
     session_start();
     $correo = "";
-    if ($_SESSION['correo'] != "") {
-        
-    }else {
-        $_SESSION['correo'] = "";
+    $pdf = "";
+    if(isset($_POST["pdf"])){
+        $pdf = trim($_POST["pdf"]); 
+        if ($pdf == ""){
+            if(isset($_GET["pdf"])){
+                $pdf = $_GET["pdf"];
+                if ($pdf == ""){
+                    $pdf = "";
+                }
+            }
+        }
+    }    
+    else{ 
+        if ($pdf == ""){
+            $pdf = "";
+        }
+        if(isset($_GET["pdf"])){ 
+            $pdf = $_GET["pdf"];
+            if ($pdf == ""){
+                $pdf = "";
+            }
+        }    
     }
+    
     $bandera = "";
     $padre = "";
     $producto = "";
@@ -34,29 +53,7 @@
         }    
     }
 
-    $pdf = "";
-    if(isset($_POST["pdf"])){
-        $pdf = trim($_POST["pdf"]); 
-        if ($pdf == ""){
-            if(isset($_GET["pdf"])){
-                $pdf = $_GET["pdf"];
-                if ($pdf == ""){
-                    $pdf = "";
-                }
-            }
-        }
-    }    
-    else{ 
-        if ($pdf == ""){
-            $pdf = "";
-        }
-        if(isset($_GET["pdf"])){ 
-            $pdf = $_GET["pdf"];
-            if ($pdf == ""){
-                $pdf = "";
-            }
-        }    
-    }
+    
 
     if(isset($_POST["padre"])){
         $padre = trim($_POST["padre"]); 
@@ -102,6 +99,12 @@
                 $producto = "";
             }
         }    
+    }
+    if ($_SESSION['correo'] != "" && $padre!=3) {
+        $ruta = "Location:showPdf.php?pdf=".$pdf;
+        header($ruta);
+    }else {
+        $_SESSION['correo'] = "";
     }
 
 ?>
@@ -181,11 +184,13 @@
     <?php
         if ($_SESSION['correo'] != "" && $padre != 3) {
             //QUIERE DECIR QUE ESTA EL USUARIO
-            $_SESSION['correo'] = "";
-            header("Location:login.php?padre=3&pdf=".$pdf);
+            $ruta = "Location:showPdf.php?pdf=".$pdf;
+            header($ruta);
+            //echo "Entro aqui";
         } else if ($padre == 3 && $_SESSION['correo'] == "admin@gmail.com"){
             //Va para el admin
-            //Entonces lo llevo a la pagina de admin
+            //Entonces lo llevo a la pagina de admin por que ya esta logeado
+            header("Location:dashboard.php");
         } else if ($padre == 3 && $_SESSION['correo'] == ""){
             ?>
             <section class="vh-100">
@@ -216,7 +221,7 @@
                                 <button type="submit" class="btn btn-success btn-lg"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar</button>
                             </div>
-
+                            <input type="hidden" value="<?php echo $pdf; ?>" name = "pdf">
                         </form>
                         <?php
                             if($bandera != ""){
@@ -263,8 +268,9 @@
                             <div class="text-center text-lg-start mt-4 pt-2">
                                 <button type="submit" class="btn btn-success btn-lg"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar</button>
-                                <p class="small fw-bold mt-2 pt-1 mb-0">¿Aun no tienes cuenta? <a href="createAccount.php"
-                                    class="link-danger">Register</a></p>
+                                <p class="small fw-bold mt-2 pt-1 mb-0">¿Aun no tienes cuenta? 
+                                <?php echo "<a href='createAccount.php?pdf=".$pdf."'
+                                    class='link-danger'>";?>Register</a></p>
                             </div>
 
                         </form>

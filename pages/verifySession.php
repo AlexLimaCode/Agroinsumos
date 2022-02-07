@@ -52,7 +52,7 @@
     }
     // echo "Entro";
 
-    if ($padre==1) {
+    if ($padre==1) { //Si viene del login
         if ($_SESSION['correo']!='') {
             header("Location:showPdf.php?pdf=".$pdf);
         }else{
@@ -117,7 +117,7 @@
                 header("Location:login.php?bandera=2&pdf=".$pdf);
             }
         }
-    }else if ($padre == 2){
+    }else if ($padre == 2){ //Si va para el admin
         $correo = "";
         $contrasenia = "";
 
@@ -174,9 +174,9 @@
             $_SESSION['correo'] = $correo;
             header("Location:dashboard.php");
         }else{
-            header("Location:login.php?bandera=2&pdf=".$pdf);
+            header("Location:login.php?bandera=2&padre=3");
         }
-    }else{
+    }else{ //Si viene de registrarse
         $name = $_POST['nombre'];
         $contrasenia = $_POST['contrasenia'];  
         $correo = $_POST['correo']; 
