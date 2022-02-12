@@ -130,6 +130,30 @@
                 header("Location: upTestimonials.php?padre=2");
             }
         }
+    }else if ($padre == 3){
+        $id = 0;
+        $url = $_POST['url'];
+        $query = "INSERT INTO banner(UrlImagen) VALUES ('".$url."')";
+        $result = mysqli_query($conn,$query);
+        $query = "select IdBanner from banner order by IdBanner desc limit 1";
+        $result = mysqli_query($conn,$query);
+        if (mysqli_num_rows($result)>0) {
+            while ($row=mysqli_fetch_array($result)){
+                $id = $row[0];
+            }
+        }else{
+            $id = $id + 1;
+        }
+        //imagen
+        $imagen=$_FILES['im1']['name'];
+        $tipo = $_FILES['im1']['type'];
+        $temp = $_FILES['im1']['tmp_name'];
+        //$imagen = "imagen-".$id;
+        //echo $imagen."\n";
+        move_uploaded_file($temp,'../banner/'.$id.'-'.$imagen);
+        $sql = "update banner set Imagen = '".$id."-".$imagen."' where IdBanner = ".$id;
+        mysqli_query($conn, $sql);
+        header("Location: upBanner.php?padre=1");
     }
 
 ?>

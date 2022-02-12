@@ -68,6 +68,17 @@
                         </div>
                     </div>
                     <div class="col-md">
+                        <!-- <div class="card" style="width: 18rem;">
+                            <img src="../assets/images/emLogo.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <br>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="col-md">
                         <div class="card" style="width: 30rem;">
                             <img src="../assets/images/emLogo.png" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -75,6 +86,39 @@
                                 <p class="card-text">Elimina algun producto que este erroneo y subelo de nuevo</p>
                                 <br>
                                 <a href="deleteItems.php?padre=2" class="btn btn-primary">Eliminar producto</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="card" style="width: 30rem;">
+                            <img src="../assets/images/emLogo.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Subir Imagen al Banner</h5>
+                                <p class="card-text">Sube una nueva imagen al banner</p>
+                                <br>
+                                <a href="upBanner.php" class="btn btn-primary">Subir Banner</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <!-- <div class="card" style="width: 18rem;">
+                            <img src="../assets/images/emLogo.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <br>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="col-md">
+                        <div class="card" style="width: 30rem;">
+                            <img src="../assets/images/emLogo.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Eliminar Imagen del Banner</h5>
+                                <p class="card-text">Elimina una imagen del banner</p>
+                                <br>
+                                <a href="deleteItems.php?padre=3" class="btn btn-primary">Eliminar Banner</a>
                             </div>
                         </div>
                     </div>

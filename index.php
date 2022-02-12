@@ -133,6 +133,57 @@ include('./pages/funciones.php');
             </div> <!-- end of row -->
         </div> <!-- end of container -->
     </section> <!-- end of about -->
+    
+    <br><br><br>
+    <div class="container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <?php
+                    $query = "select IdBanner, UrlImagen, Imagen from banner order by IdBanner asc";
+                    $result = mysqli_query($conn,$query);
+                    $id = 0;
+                    $url = 0;
+                    $imagen = 0;
+                    $x = 0;
+                    if (mysqli_num_rows($result)>0) {
+                        while ($row=mysqli_fetch_array($result)){
+                            $id = $row[0];
+                            $url = $row[1];
+                            $imagen = $row[2];
+                            if ($x == 0) {
+                                ?>
+                                <div class="carousel-item active">
+                                    <?php
+                                    echo "<a href='".$url."'><img src='./banner/".$imagen."' class='d-block w-100 bannerImage' ></a>";
+                                    ?>
+                                </div>
+                                <?php
+                            }else{
+                                ?>
+                                <div class="carousel-item">
+                                    <?php
+                                    echo "<a href='".$url."'><img src='./banner/".$imagen."' class='d-block w-100 bannerImage' ></a>";
+                                    ?>
+                                </div>
+                                <?php
+                            }
+                            $x = $x + 1;
+                        }
+                    }
+                ?>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+
 
     <br><br><br>
     <div class="container">

@@ -33,11 +33,16 @@ if ($padre == 1) {
         mysqli_query($conn, "delete from testimonios where IdTestimonio = '".$arreglo[$i]."'");  
     }
     header('location:./deleteItems.php?padre=1');
-}else{
+}else if ($padre == 2){
     for ($i=0; $i < count($arreglo); $i++) { 
         mysqli_query($conn, "delete from productos where IdProducto = '".$arreglo[$i]."'");  
     }
     header('location:./deleteItems.php?padre=2');
+}else if ($padre == 3){
+    for ($i=0; $i < count($arreglo); $i++) { 
+        mysqli_query($conn, "delete from banner where IdBanner = '".$arreglo[$i]."'");  
+    }
+    header('location:./deleteItems.php?padre=3');
 }
 
 ?>

@@ -53,34 +53,62 @@ else{
                 <table class="table">
                     <thead>
                         <tr>
+                        <?php
+                        if ($padre == 3){
+                        ?>
+                        <th scope="col">#</th>
+                        <th scope="col">Url</th>
+                        <th scope="col">Selecciona para eliminar</th>
+                        <?php
+                        }else{
+                        ?>
                         <th scope="col">#</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Tipo</th>
                         <th scope="col">Selecciona para eliminar</th>
+                        <?php
+                        }
+                        ?>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                             if ($padre == 1) {
                                 $query = "select IdTestimonio, Nombre, t.Descripcion from testimonios p, tipocultivo t where t.IdTipo = p.IdTipo order by IdTestimonio";
-                            }else{
+                            }else if ($padre == 2) {
                                 $query = "select IdProducto, Nombre, t.Descripcion from productos p, tipoproductos t where t.IdTipoProducto = p.IdTipoProducto order by IdProducto";
+                            }else if ($padre == 3){
+                                $query = "select IdBanner, UrlImagen from banner order by IdBanner";
                             }
                             
                             $result = mysqli_query($conn,$query);
                             if(mysqli_num_rows($result)>0){
                                 while ($row=mysqli_fetch_array($result)){
-                                    $id = $row[0];
-                                    $name = $row[1];
-                                    $descripcion = $row[2];
+                                    if ($padre == 3){
+                                        $id = $row[0];
+                                        $name = $row[1];
+                                        ?>
+                                            <tr>
+                                                <th scope="row"><?php echo $id ?></th>
+                                                <td><?php echo $name ?></td>
+                                                <?php echo "<td><input type='checkbox' name='chk[]' value='".$id."'></td></tr></td>" ?>
+                                            </tr>
+                                        <?php
+                                    }else{
+
+                                    
+                                        $id = $row[0];
+                                        $name = $row[1];
+                                        $descripcion = $row[2];
                         ?>
-                                    <tr>
-                                        <th scope="row"><?php echo $id ?></th>
-                                        <td><?php echo $name ?></td>
-                                        <td><?php echo $descripcion ?></td>
-                                        <?php echo "<td><input type='checkbox' name='chk[]' value='".$id."'></td></tr></td>" ?>
-                                    </tr>
+                                        <tr>
+                                            <th scope="row"><?php echo $id ?></th>
+                                            <td><?php echo $name ?></td>
+                                            <td><?php echo $descripcion ?></td>
+                                            <?php echo "<td><input type='checkbox' name='chk[]' value='".$id."'></td></tr></td>" ?>
+                                        </tr>
                         <?php
+                                    }
                                 }
                             }
                         ?>
@@ -92,9 +120,13 @@ else{
                         ?>
                         <input type="hidden" name='padre' value="1">
                         <?php
-                    }else{
+                    }else if ($padre == 2){
                         ?>
                         <input type="hidden" name='padre' value="2">
+                        <?php
+                    }else if ($padre == 3){
+                        ?>
+                        <input type="hidden" name='padre' value="3">
                         <?php
                     }
                     ?>
